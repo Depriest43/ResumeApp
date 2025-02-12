@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { SafeAreaView, ScrollView } from 'react-native';
+import Header from './components/Header';
+import Contact from './components/Contact';
+import Summary from './components/Summary';
+import Experience from './components/Experience';
+import Education from './components/Education';
+import Skills from './components/Skills';
+import Footer from './components/Footer';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <Header name="Jack Smith" title="Software Engineer" />
+        <Contact email="jack.smith@example.com" phone="555-123-4567" />
+        <Summary summary="Passionate software engineer with experience in full-stack development, cloud computing, and AI." />
+        <Experience jobs={[
+          { position: "Senior Developer", company: "Tech Solutions Inc.", years: "2021-Present" },
+          { position: "Software Engineer", company: "CloudTech", years: "2018-2021" },
+          { position: "Junior Developer", company: "InnovateX", years: "2015-2018" }
+        ]} />
+        <Education schools={[
+          { degree: "BSc Computer Science", school: "University of Colorado", years: "2011-2015" }
+        ]} />
+        <Skills skills={["React Native", "JavaScript", "Python", "Cloud Computing", "Machine Learning"]} />
+        <Footer />
+      </ScrollView>
+    </SafeAreaView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
